@@ -1,14 +1,16 @@
 export const formatDate = (dateString) => {
-    const [day, month, year] = dateString.split('/'); // Pecah format dd/mm/yyyy
-    const dateObj = new Date(`${year}-${month}-${day}`); // Buat Date object
+    if (!dateString) return "Invalid Date";
+
+    const [day, month, year] = dateString.split('/').map(Number); // Pastikan jadi angka
+    const dateObj = new Date(Date.UTC(year, month - 1, day)); // Gunakan UTC untuk kompatibilitas
 
     return dateObj.toLocaleDateString('en-US', {
-        weekday: 'long',  // Nama hari (Senin, Selasa, ...)
-        day: '2-digit',    // Tanggal
-        month: 'long',     // Nama bulan
-        year: 'numeric'    // Tahun
+        weekday: 'long',  // Contoh: "Monday"
+        day: '2-digit',    // Contoh: "10"
+        month: 'long',     // Contoh: "February"
+        year: 'numeric'    // Contoh: "2024"
     });
-}
+};
 
 export const formatTime = (timeString) => {
     if (!timeString) return ""; // Cegah error jika null atau undefined
