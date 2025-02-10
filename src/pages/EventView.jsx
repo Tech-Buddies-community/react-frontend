@@ -4,6 +4,7 @@ import CardEvent from "../components/CardEvent";
 import customAPI from "../api";
 import { useSelector } from "react-redux";
 import FilterEvent from "../components/FilterEvent";
+import Pagination from "../components/Pagination";
 
 export const loader = async ({request}) => {
     const params = Object.fromEntries([
@@ -16,13 +17,13 @@ export const loader = async ({request}) => {
     // console.log(params);
     const event = data.data;
     // console.log(event);
-    // const pagination = data.pagination;
+    const pagination = data.pagination;
 
-    return { event, params };
+    return { event, params, pagination};
 }
 
 const EventView = () => {
-    const { event } = useLoaderData();
+    const { event, pagination } = useLoaderData();
     const user = useSelector((state) => state.userState.user);
     
     return (
@@ -31,6 +32,8 @@ const EventView = () => {
             <div className="border-b border-neutral pb-5 mt-5">
                 <h2 className="text-2xl font-bold capitalize">Event List</h2>
             </div>
+
+            <h3 className="text-2xl text-neutral font-bold text-right my-3">Total : {pagination.totalEvent} Event</h3>
 
             {user && user.role === 'admin' && (
                 <div className="mt-2 flex justify-end">
@@ -52,6 +55,10 @@ const EventView = () => {
                     }
                 </div>
             )}
+
+            <div className="mt-5 flex justify-center">
+                <Pagination />
+            </div>
         </>
     )
 }
