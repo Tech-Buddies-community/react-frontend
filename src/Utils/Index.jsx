@@ -1,6 +1,6 @@
 export const formatDate = (dateString) => {
     const [day, month, year] = dateString.split('/'); // Pecah format dd/mm/yyyy
-    const dateObj = new Date(`2025-01-01T${year}-${month}-${day}`); // Buat Date object
+    const dateObj = new Date(`${year}-${month}-${day}`); // Buat Date object
 
     return dateObj.toLocaleDateString('en-US', {
         weekday: 'long',  // Nama hari (Senin, Selasa, ...)
