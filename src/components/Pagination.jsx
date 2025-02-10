@@ -22,7 +22,7 @@ const Pagination = () => {
         <div className="join">
             {pages.map((pageNumber) => {
                 return  (
-                    <button key={pageNumber} onClick={() => handlePageChange(pageNumber)} className={`btn btn-lg border-none join-item ${ pageNumber === page ? 'bg-neutral text-white' : '' }`}>{pageNumber}</button>
+                    <button key={pageNumber} onClick={() => handlePageChange(pageNumber)} className={`btn btn-sm bg-base-200 border-none join-item ${ pageNumber === page ? 'bg-neutral text-white' : '' }`}>{pageNumber}</button>
                 )
             })}
         </div>
