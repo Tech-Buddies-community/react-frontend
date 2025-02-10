@@ -1,14 +1,17 @@
 export const formatDate = (dateString) => {
-    const [day, month, year] = dateString.split('/'); // Pecah format dd/mm/yyyy
-    const dateObj = new Date(`${year}-${month}-${day}`); // Buat Date object
+    if (!dateString || !/\d{2}\/\d{2}\/\d{4}/.test(dateString)) return "Invalid Date";
+
+    const [day, month, year] = dateString.split('/').map(Number); // Convert ke angka
+    const dateObj = new Date(year, month - 1, day); // Gunakan cara yang benar
 
     return dateObj.toLocaleDateString('en-US', {
-        weekday: 'long',  // Nama hari (Senin, Selasa, ...)
+        weekday: 'long',  // Nama hari
         day: '2-digit',    // Tanggal
         month: 'long',     // Nama bulan
         year: 'numeric'    // Tahun
     });
-}
+};
+
 
 export const formatTime = (timeString) => {
     if (!timeString) return ""; // Cegah error jika null atau undefined
