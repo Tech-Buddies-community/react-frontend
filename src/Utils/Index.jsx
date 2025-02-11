@@ -1,13 +1,11 @@
-export const formatDate = (dateString) => {
-    const [day, month, year] = dateString.split('/'); // Pecah format dd/mm/yyyy
-    const dateObj = new Date(`${year}-${month}-${day}`); // Buat Date object
+import dayjs from "dayjs";
 
-    return dateObj.toLocaleDateString('en-US', {
-        weekday: 'long',  // Nama hari (Senin, Selasa, ...)
-        day: '2-digit',    // Tanggal
-        month: 'long',     // Nama bulan
-        year: 'numeric'    // Tahun
-    });
+export const formatDate = (dateString) => {
+    if (!dateString) return "Invalid Date";
+
+    const formattedDate = dayjs(dateString, ["DD/MM/YYYY", "YYYY-MM-DD"]).format("dddd, DD MMMM YYYY");
+
+    return formattedDate !== "Invalid Date" ? formattedDate : "Invalid Date";
 }
 
 export const formatTime = (timeString) => {
