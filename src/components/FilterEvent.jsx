@@ -8,7 +8,7 @@ const FilterEvent = () => {
     const { params } = useLoaderData();
     const { name, category, ticket_status, status } = params;
     const categories = ["IT", "NON-IT Conference", "NON-IT Seminar", "NON-IT Pameran/Expo", "NON-IT Seni"];
-    const statusTicket = ["Free", "Paid"];
+    const statusTicket = ["Free", "Paid", "Coming Soon"];
     const statuses = ["Open", "Coming Soon"];
 
     return (
