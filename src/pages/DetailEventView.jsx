@@ -48,9 +48,9 @@ const DetailEventView = () => {
                     )}
 
                     <span className={`absolute top-0 right-0 font-bold text-white rounded 
-                        ${event.ticket_status === "Free" ? "bg-success" : "bg-neutral"}`}>
+                        ${event.ticket_status === "Free" ? "bg-success" : "Coming Soon" ? "bg-warning" : "bg-neutral"}`}>
                         <a className="m-1">
-                            {event.category === "IT" ? "IT" : "NON-IT"} ({event.ticket_status === "Free" ? "Free" : "Paid"})
+                            {event.category} ({event.ticket_status})
                         </a>
                     </span>
                     <img src={event.poster} alt={event.name} className="w-full  object-cover rounded-lg" />
