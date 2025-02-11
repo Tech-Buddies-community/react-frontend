@@ -62,6 +62,7 @@ const CreateEventView = () => {
                 name: data.name,
                 organizer: data.organizer,
                 date: data.date,
+                dateend: data.dateend,
                 start_time: data.start_time,
                 end_time: data.end_time,
                 location: data.location,
@@ -99,8 +100,13 @@ const CreateEventView = () => {
                     </label>
                     <input type="file" name="poster" className="file-input file-input-bordered file-input-neutral w-full" />
                 </label>
-                <div className="grid grid-cols-3 gap-x-4">
-                    <FormInput name='date' label='Date Event' type='date' />
+
+                <div className="grid grid-cols-2 gap-x-4">
+                    <FormInput name='date' label='Start Date Event' type='date' />
+                    <FormInput name='dateend' label='End Date Event' type='date' />
+                </div>
+
+                <div className="grid grid-cols-2 gap-x-4">
                     <FormInput name='start_time' label='Start Event' type='time' />
                     <FormInput name='end_time' label='End Event' type='time' />
                 </div>
