@@ -107,8 +107,8 @@ const CreateEventView = () => {
                 </div>
 
                 <div className="grid grid-cols-2 gap-x-4">
-                    <FormInput name='start_time' label='Start Event' type='time' />
-                    <FormInput name='end_time' label='End Event' type='time' />
+                    <FormInput name='start_time' label='Start Time Event' type='time' />
+                    <FormInput name='end_time' label='End Time Event' type='time' />
                 </div>
                 
                 <div className="grid grid-cols-3 gap-x-4">

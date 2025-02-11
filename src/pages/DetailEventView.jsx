@@ -63,7 +63,7 @@ const DetailEventView = () => {
                 <div className="border-b border-neutral pb-1 mt-1" />
                 <div className="mt-2 space-y-2 text-gray-700">
                     <p className="flex items-center gap-2"><strong><FaBuilding /></strong> {event.organizer}</p>
-                    <p className="flex items-center gap-2"><strong><FaCalendarAlt /></strong> {formatDate(event.date)}</p>
+                    <p className="flex items-center gap-2"><strong><FaCalendarAlt /></strong>{formatDate(event.date)} - {formatDate(event.dateend)}</p>
                     <p className="flex items-center gap-2"><strong><FaClock /></strong> {formatTime(event.start_time)} - {formatTime(event.end_time)}</p>
                     <p className="flex items-center gap-2"><strong><FaLocationDot /></strong> 
                             {event.location ? (

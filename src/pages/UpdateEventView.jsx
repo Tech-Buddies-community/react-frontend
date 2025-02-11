@@ -54,6 +54,7 @@ const updateEventView = () => {
                 name: data.name,
                 organizer: data.organizer,
                 date: data.date,
+                dateend: data.dateend,
                 start_time: data.start_time,
                 end_time: data.end_time,
                 location: data.location,
@@ -89,10 +90,14 @@ const updateEventView = () => {
                         <FormInput name='organizer' label='Organizer Event' type='text' defaultValue={event.organizer} />
                     </div>
 
-                    <div className="grid grid-cols-3 gap-x-4">
-                        <FormInput name='date' label='Date Event' type='date' defaultValue={event.date} />
-                        <FormInput name='start_time' label='Start Event' type='time' defaultValue={event.start_time} />
-                        <FormInput name='end_time' label='End Event' type='time' defaultValue={event.end_time} />
+                    <div className="grid grid-cols-2 gap-x-4">
+                        <FormInput name='date' label='Start Date Event' type='date' defaultValue={event.date} />
+                        <FormInput name='dateend' label='End Date Event' type='date' defaultValue={event.dateend} />
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-x-4">
+                        <FormInput name='start_time' label='Start Time Event' type='time' defaultValue={event.start_time} />
+                        <FormInput name='end_time' label='End Time Event' type='time' defaultValue={event.end_time} />
                     </div>
                     
                     <div className="grid grid-cols-3 gap-x-4">
