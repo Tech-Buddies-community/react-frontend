@@ -26,7 +26,7 @@ export const loader = (storage) => async () => {
 
 const CreateEventView = () => {
     const categoryEvent = ["IT", "NON-IT Conference", "NON-IT Seminar", "NON-IT Pameran/Expo", "NON-IT Seni"];
-    const statusTicket = ["Free", "Paid"];
+    const statusTicket = ["Coming Soon", "Free", "Paid"];
     const statusEvent = ["Coming Soon", "Open", "Close"];
     const navigate = useNavigate();
 

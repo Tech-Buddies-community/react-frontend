@@ -27,9 +27,9 @@ const CardEvent = ({ item,user }) => {
                         )}
 
                         <span className={`absolute top-0 right-0 font-bold text-white rounded 
-                            ${item.ticket_status === "Free" ? "bg-success" : "bg-neutral"}`}>
+                            ${item.ticket_status === "Free" ? "bg-success" : item.ticket_status === "Coming Soon" ? "bg-warning" : "bg-neutral"}`}>
                             <a className="m-1">
-                                {item.category} ({item.ticket_status === "Free" ? "Free" : "Paid"})
+                                {item.category} ({item.ticket_status})
                             </a>
                         </span>
 
