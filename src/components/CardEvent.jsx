@@ -49,7 +49,7 @@ const CardEvent = ({ item,user }) => {
                     <h1 className="card-title">{item.name.substring(0,19)}</h1>
                     <h3 className="flex items-center gap-2 text-sm"><FaBuilding />{item.organizer.substring(0,19)}</h3>
                     <p className="flex items-center gap-2 text-xs font-bold"><FaCalendarAlt />{formatDate(item.date)}</p>
-                    <p className="flex items-center gap-2 text-sm"><FaLocationDot />{item.location ? item.location.substring(0,19) : "No Location"}</p>
+                    <p className="flex items-center gap-2 text-sm"><FaLocationDot />{item.location ? item.location.substring(0,19) : "To Be Announced"}</p>
                     <div className="card-actions justify-end">
                     <Link to={`/event/${item._id}`} className="btn btn-neutral bg-blue-600 text-white mt-2">See more</Link>
                     </div>

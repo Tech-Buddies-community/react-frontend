@@ -75,7 +75,7 @@ const DetailProgramView = () => {
                                 {program.location}
                             </a>
                         ) : (
-                            <span>No Location</span>
+                            <span>To Be Announced</span>
                         )}
                     </p>
 

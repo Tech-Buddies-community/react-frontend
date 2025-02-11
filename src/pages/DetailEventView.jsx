@@ -76,7 +76,7 @@ const DetailEventView = () => {
                                     {event.location}
                                 </a>
                             ) : (
-                                <span>No Location</span>
+                                <span>To Be Announced</span>
                             )}
                     </p>
                     {event.description && ( 
