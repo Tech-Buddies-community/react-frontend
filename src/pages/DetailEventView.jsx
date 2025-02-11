@@ -110,7 +110,9 @@ const DetailEventView = () => {
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
                     <div className="modal-box">
                     <h3 className="font-bold text-lg">Hello Buddies!</h3>
-                    <p className="py-4 justify-center">Pendaftaran untuk event ini dilakukan <strong>{event.link}</strong>. Silakan datang lebih awal untuk memastikan ketersediaan tempat.</p>
+                    <p className="py-4 justify-center">Pendaftaran untuk event ini <strong>{event.link}</strong>. {event.link != "On The Spot" && ( 
+                        <a>Silakan datang lebih awal untuk memastikan ketersediaan tempat.</a>
+                    )}</p>
                     <div className="modal-action">
                         <form method="dialog">
                         {/* if there is a button in form, it will close the modal */}
