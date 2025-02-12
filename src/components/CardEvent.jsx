@@ -33,7 +33,7 @@ const CardEvent = ({ item,user }) => {
                             </a>
                         </span>
 
-                        <img src={item.poster} alt={item.name} className="w-full h-full object-cover" />
+                        <img src={item.poster} alt={item.name} className="w-[500px] h-[250px] object-cover" />
                     </figure>
                 </>
                 <div className="card-body">
