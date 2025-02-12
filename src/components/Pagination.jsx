@@ -19,14 +19,22 @@ const Pagination = () => {
 
     const pages = Array.from({length: totalPage}, (_, index) => { return index + 1; });
     return (
-        <div className="join">
-            {pages.map((pageNumber) => {
-                return  (
-                    <button key={pageNumber} onClick={() => handlePageChange(pageNumber)} className={`btn btn-sm bg-base-200 border-none join-item ${ pageNumber === page ? 'bg-neutral text-white' : '' }`}>{pageNumber}</button>
-                )
-            })}
+        <div className="w-full overflow-x-auto">
+            <div className="join flex flex-wrap justify-center overflow-x-auto scroll-smooth mt-4 gap-1">
+                {pages.map((pageNumber) => (
+                    <button
+                        key={pageNumber}
+                        onClick={() => handlePageChange(pageNumber)}
+                        className={`btn btn-sm bg-base-200 border-none join-item ${
+                            pageNumber === page ? 'bg-neutral text-white' : ''
+                        }`}
+                    >
+                        {pageNumber}
+                    </button>
+                ))}
+            </div>
         </div>
-    )
+    );
 }
 
 export default Pagination;
