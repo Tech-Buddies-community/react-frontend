@@ -6,10 +6,12 @@ import { FaBuilding, FaCalendarAlt, FaClock, FaStickyNote } from "react-icons/fa
 import { FaLocationDot } from "react-icons/fa6";
 import Loading from "../components/Loading";
 
-const DetailEventView = () => {
+const DetailEventView = ({ description = "" }) => {
     let {id}= useParams();
     const [event, setEvent] = useState('');
     const [showPopup, setShowPopup] = useState(false);
+    const [expanded, setExpanded] = useState(false);
+    const maxLength = 100;
 
     const Event = async () => {
         const { data } = await customAPI.get(`/event/${id}`);
@@ -86,7 +88,14 @@ const DetailEventView = () => {
                 
                 {event.description && (
                     <div className="border border-neutral pb-1 mt-1">
-                        <p className="m-2">{event.description}</p>
+                        <p className="m-2">
+                            {expanded ? event.description : `${event.description.slice(0, maxLength)}...`}
+                            {event.description.length > maxLength && (
+                                <button onClick={() => setExpanded(!expanded)} className="text-blue-500 ml-2">
+                                    {expanded ? "Show Less" : "Show More"}
+                                </button>
+                            )}
+                        </p>
                     </div>
                 )}
 
