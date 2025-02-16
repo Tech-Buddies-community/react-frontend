@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  buddies-react-fe-dev:
+    container_name: buddies-react-fe-dev
+    image: react-fe:dev-latest
+    restart: always
+    ports:
+      - 6700:5176
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "300m" 
+        max-file: "5"
+    volumes:
+      - ./logs:/var/log/app
