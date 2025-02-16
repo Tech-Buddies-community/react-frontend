@@ -2,7 +2,7 @@
     "rewrites": [
         {
             "source": "/api/:path(.*)",
-            "destination": "https://techbuddies-be.vercel.app/api/:path"
+            "destination": "https://express-be.dev.app.techbuddies.id//api/:path"
         },
         {
             "source": "/(.*)",

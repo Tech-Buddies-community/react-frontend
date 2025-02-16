@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
       proxy: {
         '/api': {
-          target: 'https://techbuddies-be.vercel.app',
+          target: 'https://express-be.dev.app.techbuddies.id/',
           // target: 'http://localhost:3000',
           changeOrigin: true,
         },
