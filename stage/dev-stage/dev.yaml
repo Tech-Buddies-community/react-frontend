@@ -6,7 +6,7 @@ services:
     image: react-fe:dev-latest
     restart: always
     ports:
-      - 6700:5176
+      - 6700:5173
     logging:
       driver: "json-file"
       options:

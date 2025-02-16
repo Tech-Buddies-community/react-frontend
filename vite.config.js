@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 dotenv.config();
 
 const API_URL = process.env.VITE_API_URL || 'http://localhost:3000'
-const APP_PORT = process.env.VITE_APP_PORT || 5176
+const APP_PORT = process.env.VITE_APP_PORT || 5173
 
 console.log(`APP RUN ON PORT '${APP_PORT}'`);
 console.log(`LISTEN ON BACKEND URL '${API_URL}'`);
