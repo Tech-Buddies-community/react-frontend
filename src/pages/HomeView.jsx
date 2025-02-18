@@ -36,7 +36,7 @@ const HomeView = () => {
     return (
         <>
             <Hero />
-            {/* <div className="border-b border-neutral pb-5 mt-5">
+            <div className="border-b border-neutral pb-5 mt-5">
                 <h2 className="text-2xl font-bold capitalize">Event List</h2>
             </div>
                 {isLoading ? (
@@ -111,7 +111,7 @@ const HomeView = () => {
                     </div>
                 )}
             
-            <div className="border-b border-neutral mt-5" /> */}
+            <div className="border-b border-neutral mt-5" />
         </>
     )
 }
