@@ -6,37 +6,37 @@ import CardJob from "../components/CardJob";
 import customAPI from "../api";
 
 const HomeView = () => {
-    const [event, setEvent] = useState([]);
-    const [program, setProgram] = useState([]);
-    const [job, setJob] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    // const [event, setEvent] = useState([]);
+    // const [program, setProgram] = useState([]);
+    // const [job, setJob] = useState([]);
+    // const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const [eventResponse, programResponse, jobResponse] = await Promise.all([
-                    customAPI.get('/event'),
-                    customAPI.get('/program'),
-                    customAPI.get('/job')
-                ]);
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         try {
+    //             const [eventResponse, programResponse, jobResponse] = await Promise.all([
+    //                 customAPI.get('/event'),
+    //                 customAPI.get('/program'),
+    //                 customAPI.get('/job')
+    //             ]);
 
-                setEvent(eventResponse.data.data);
-                setProgram(programResponse.data.data);
-                setJob(jobResponse.data.data);
-            } catch (error) {
-                console.error("🔥 Error fetching data:", error);
-            } finally {
-                setIsLoading(false);
-            };
-        };
+    //             setEvent(eventResponse.data.data);
+    //             setProgram(programResponse.data.data);
+    //             setJob(jobResponse.data.data);
+    //         } catch (error) {
+    //             console.error("🔥 Error fetching data:", error);
+    //         } finally {
+    //             setIsLoading(false);
+    //         };
+    //     };
 
-        fetchData();
-    }, []);
+    //     fetchData();
+    // }, []);
 
     return (
         <>
             <Hero />
-            <div className="border-b border-neutral pb-5 mt-5">
+            {/* <div className="border-b border-neutral pb-5 mt-5">
                 <h2 className="text-2xl font-bold capitalize">Event List</h2>
             </div>
                 {isLoading ? (
@@ -111,7 +111,7 @@ const HomeView = () => {
                     </div>
                 )}
             
-            <div className="border-b border-neutral mt-5" />
+            <div className="border-b border-neutral mt-5" /> */}
         </>
     )
 }
