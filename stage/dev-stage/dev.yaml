@@ -14,5 +14,3 @@ services:
         max-file: "5"
     volumes:
       - ./logs:/var/log/app
-    environment:
-      - VITE_API_URL=https://dev.app.techbuddies.id:6100/api/v1
