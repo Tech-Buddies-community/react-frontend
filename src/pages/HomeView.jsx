@@ -20,11 +20,15 @@ const HomeView = () => {
                     customAPI.get('/job')
                 ]);
 
-                setEvent(eventResponse.data.data);
-                setProgram(programResponse.data.data);
-                setJob(jobResponse.data.data);
+                setEvent(eventResponse?.data?.data || []);
+                setProgram(programResponse?.data?.data || []);
+                setJob(jobResponse?.data?.data || []);    
             } catch (error) {
                 console.error("🔥 Error fetching data:", error);
+
+                setEvent([]);
+                setProgram([]);
+                setJob([]);
             } finally {
                 setIsLoading(false);
             };
