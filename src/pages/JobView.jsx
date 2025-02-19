@@ -12,6 +12,8 @@ export const loader = async ({request}) => {
     try {
         const { data } = await customAPI.get('/job', {params: params});
 
+        console.log("data dari API:", data);
+
         const job = data?.data || [];
         // const pagination = data?.pagination || {};
 
@@ -28,6 +30,7 @@ export const loader = async ({request}) => {
 
 const JobView = () => {
     const { job } = useLoaderData();
+    console.log("data dari useLoaderData(): ", job)
     const user = useSelector((state) => state.userState.user);
 
     return (
