@@ -17,13 +17,13 @@ export const loader = async ({request}) => {
     // console.log(params);
     const event = data.data;
     // console.log(event);
-    const pagination = data.pagination;
+    // const pagination = data.pagination;
 
     return { event, params, pagination};
 }
 
 const EventView = () => {
-    const { event, pagination } = useLoaderData();
+    const { event } = useLoaderData();
     const user = useSelector((state) => state.userState.user);
     
     return (
@@ -33,7 +33,7 @@ const EventView = () => {
                 <h2 className="text-2xl font-bold capitalize">Event List</h2>
             </div>
 
-            <h3 className="text-2xl text-neutral font-bold text-right my-3">Total : {pagination.totalEvent} Event</h3>
+            {/* <h3 className="text-2xl text-neutral font-bold text-right my-3">Total : {pagination.totalEvent} Event</h3> */}
 
             {user && user.role === 'admin' && (
                 <div className="mt-2 flex justify-end">
