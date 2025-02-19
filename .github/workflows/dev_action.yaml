@@ -15,7 +15,7 @@ jobs:
       - name: Create .env file
         run: |
             touch .env
-            echo "${{secrets.DEV_ENV}}" >> .env
+            echo "${{vars.ENV_DEV_VAR}}" >> .env
 
       - name: Build Docker Image
         run: |
