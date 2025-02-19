@@ -48,7 +48,7 @@ const ProgramView = () => {
 
             {user?.role === 'admin' && (
                 <div className="mt-2 flex justify-end">
-                    <Link to='/event/create' className="btn btn-neutral">Add Program</Link>
+                    <Link to='/program/create' className="btn btn-neutral">Add Program</Link>
                 </div>
             )}
 
