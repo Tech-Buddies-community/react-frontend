@@ -9,21 +9,15 @@ export const loader = async ({request}) => {
         ...new URL(request.url).searchParams.entries(),
     ]);
 
-    try {
-        const { data } = await customAPI.get('/job', {params: params});
 
-        const job = data?.data || [];
-        // const pagination = data?.pagination || {};
+    const { data } = await customAPI.get('/job', {params: params});
 
-        return { job, params, pagination };
-    } catch (error) {
-        console.error("Error loading jobs:", error);
-        return { 
-            job: [], 
-            params, 
-            // pagination: {} 
-        };
-    }
+    // console.log(params);
+    const job = data.data;
+    // console.log(event);
+    // const pagination = data.pagination;
+
+    return { job, params };
 }
 
 const JobView = () => {
@@ -36,13 +30,13 @@ const JobView = () => {
                 <h2 className="text-2xl font-bold capitalize">Job List</h2>
             </div>
 
-            {user?.role === 'admin' && (
+            {user && user.role === 'admin' && (
                 <div className="mt-2 flex justify-end">
-                    <Link to='/event/create' className="btn btn-neutral">Add Job</Link>
+                        <Link to='/event/create' className="btn btn-neutral">Add Job</Link>
                 </div>
             )}
 
-            {!job?.length ? ( 
+            {!job.length ? ( 
                 <div className="mt-5 mb-5">
                     <h1 className="text-3xl text-center">
                         Oops! Sepertinya tidak ada lowongan pekerjaan saat ini. Nantikan pembaruan selanjutnya! 😊
@@ -51,8 +45,9 @@ const JobView = () => {
             ) : (  
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
                     {job.map((item) => (
-                        <CardJob item={item} key={item._id} user={user} />
-                    ))}
+                            <CardJob item={item} key={item._id} user={user} />
+                        ))
+                    }
                 </div>
             )}
         </>
