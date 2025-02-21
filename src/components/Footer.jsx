@@ -9,7 +9,7 @@ const Footer = () => {
                 <p>
                 <a className="font-bold">Tech Buddies Group.</a>
                 <br />
-                The Best Community to Explore the World of Technology Since 2023
+                The Best Community to Explore the World of Technology Since 2024
                 </p>
             </aside>
             <nav>
