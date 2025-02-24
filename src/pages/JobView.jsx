@@ -39,11 +39,11 @@ const JobView = () => {
                 <h2 className="text-2xl font-bold capitalize">Job List</h2>
             </div>
 
-            {user?.role === 'admin' && (
+            {/* {user?.role === 'admin' && (
                 <div className="mt-2 flex justify-end">
                     <Link to='/event/create' className="btn btn-neutral">Add Job</Link>
                 </div>
-            )}
+            )} */}
 
             {!job?.length ? ( 
                 <div className="mt-5 mb-5">
