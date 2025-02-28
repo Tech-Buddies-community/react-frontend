@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-  buddies-react-fe-prod:
-    container_name: buddies-react-fe-prod
+  buddies-react-fe:
+    container_name: buddies-react-fe
     image: react-fe:latest
     restart: always
     ports:
