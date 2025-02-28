@@ -11,7 +11,7 @@ const CardJob = ({ item,user }) => {
                     alt="Shoes"/>
                 </figure>
                 <div className="card-body">
-                    <h2 className="card-title">Shoes!</h2>
+                    <h2 className="card-title">Shoes!.</h2>
                     <p>If a dog chews shoes whose shoes does he choose?</p>
                     <div className="card-actions justify-end">
                     <Link to={`/job/${item._id}`} className="btn btn-neutral bg-blue-600 text-white mt-2">See more</Link>
