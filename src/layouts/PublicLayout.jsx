@@ -10,6 +10,15 @@ const PublicLayout = () => {
 
     return (
         <>
+
+            <a
+                href="https://feedback.techbuddies.id"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="fixed bottom-5 right-5 bg-green-500 text-white px-4 py-2 rounded-full shadow-lg hover:bg-green-600 transition z-20"
+                >
+                Feedback
+            </a>
             <div className="flex flex-col min-h-screen bg-base-200">
                 <Nav />
                 { isPageLoading ? (
