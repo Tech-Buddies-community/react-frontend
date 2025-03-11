@@ -69,7 +69,10 @@ const DetailEventView = ({ description = "" }) => {
                     <p className="flex items-center gap-2"><strong><FaClock /></strong> {formatTime(event.start_time)} - {formatTime(event.end_time)}</p>
                     <p className="flex items-center gap-2"><strong><FaLocationDot /></strong> 
                             {event.location ? (
-                                <a 
+                                ["online", "Online", "ONLINE"].includes(event.location.trim()) ? (
+                                    <span>{event.Location}</span>
+                                ) : (
+                                    <a
                                     href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.location)}`} 
                                     target="_blank" 
                                         rel="noopener noreferrer" 
@@ -77,6 +80,7 @@ const DetailEventView = ({ description = "" }) => {
                                 >
                                     {event.location}
                                 </a>
+                                )
                             ) : (
                                 <span>To Be Announced</span>
                             )}
