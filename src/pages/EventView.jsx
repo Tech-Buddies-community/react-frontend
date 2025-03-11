@@ -14,19 +14,37 @@ export const loader = async ({request}) => {
     try {
         const { data } = await customAPI.get('/event', {params: params});
 
-        const event = data?.data || [];
+        let event = data?.data || [];
         const pagination = data?.pagination || {};
+
+        const currentDate = new Date();
+
+        event = event
+            .filter(item => {
+                const startDate = new Date(item.date);
+                const endDate = item.dateend ? new Date(item.dateend) : null;
+
+                // kalo ada `endDate` dan udah lewat, skip event
+                if (endDate && endDate < currentDate) return false;
+
+                // kalo gak ada `endDate` tapi `startDate` udah lewat, skip event
+                if (!endDate && startDate < currentDate) return false;
+
+                return item.status !== "hide"; // Hapus event dengan status "hide"
+            })
+            .sort((a, b) => new Date(a.date) - new Date(b.date)); // urutkan tanggal ascending
 
         return { event, params, pagination };
     } catch (error) {
         console.error("Error loading events:", error);
-        return { 
-            event: [], 
-            params, 
-            pagination: {} 
+        return {
+            event: [],
+            params,
+            pagination: {}
         };
     }
-}
+};
+
 
 const EventView = () => {
     const { event, pagination } = useLoaderData();
