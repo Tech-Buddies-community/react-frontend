@@ -14,25 +14,8 @@ export const loader = async ({request}) => {
     try {
         const { data } = await customAPI.get('/event', {params: params});
 
-        let event = data?.data || [];
+        const event = data?.data || [];
         const pagination = data?.pagination || {};
-
-        const currentDate = new Date();
-
-        event = event
-            .filter(item => {
-                const startDate = new Date(item.date);
-                const endDate = item.dateend ? new Date(item.dateend) : null;
-
-                // kalo ada `endDate` dan udah lewat, skip event
-                if (endDate && endDate < currentDate) return false;
-
-                // kalo gak ada `endDate` tapi `startDate` udah lewat, skip event
-                if (!endDate && startDate < currentDate) return false;
-
-                return item.status !== "hide"; // Hapus event dengan status "hide"
-            })
-            .sort((a, b) => new Date(a.date) - new Date(b.date)); // urutkan tanggal ascending
 
         return { event, params, pagination };
     } catch (error) {
@@ -43,13 +26,12 @@ export const loader = async ({request}) => {
             pagination: {}
         };
     }
-};
-
+}
 
 const EventView = () => {
     const { event, pagination } = useLoaderData();
     const user = useSelector((state) => state.userState.user);
-    
+
     return (
         <>
             <FilterEvent />
@@ -69,13 +51,13 @@ const EventView = () => {
                 </div>
             )}
 
-            {!event?.length ? ( 
+            {!event?.length ? (
                 <div className="mt-5 mb-5">
                     <h1 className="text-3xl text-center">
                         Oops! Kami tidak dapat menemukan event yang sesuai dengan pencarianmu. Mungkin coba kata kunci lain? 🤔
                     </h1>
                 </div>
-            ) : (  
+            ) : (
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
                     {event.map((item) => (
                         <CardEvent item={item} key={item._id} user={user} />
