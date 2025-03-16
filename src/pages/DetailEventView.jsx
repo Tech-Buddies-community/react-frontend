@@ -70,7 +70,7 @@ const DetailEventView = ({ description = "" }) => {
                     <p className="flex items-center gap-2"><strong><FaLocationDot /></strong> 
                             {event.location ? (
                                 ["online", "Online", "ONLINE"].includes(event.location.trim()) ? (
-                                    <span>{event.location}</span>
+                                    <span>{event.Location}</span>
                                 ) : (
                                     <a
                                     href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.location)}`} 
