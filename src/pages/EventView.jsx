@@ -20,10 +20,10 @@ export const loader = async ({request}) => {
         return { event, params, pagination };
     } catch (error) {
         console.error("Error loading events:", error);
-        return { 
-            event: [], 
-            params, 
-            pagination: {} 
+        return {
+            event: [],
+            params,
+            pagination: {}
         };
     }
 }
@@ -31,7 +31,7 @@ export const loader = async ({request}) => {
 const EventView = () => {
     const { event, pagination } = useLoaderData();
     const user = useSelector((state) => state.userState.user);
-    
+
     return (
         <>
             <FilterEvent />
@@ -51,13 +51,13 @@ const EventView = () => {
                 </div>
             )}
 
-            {!event?.length ? ( 
+            {!event?.length ? (
                 <div className="mt-5 mb-5">
                     <h1 className="text-3xl text-center">
                         Oops! Kami tidak dapat menemukan event yang sesuai dengan pencarianmu. Mungkin coba kata kunci lain? 🤔
                     </h1>
                 </div>
-            ) : (  
+            ) : (
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
                     {event.map((item) => (
                         <CardEvent item={item} key={item._id} user={user} />
