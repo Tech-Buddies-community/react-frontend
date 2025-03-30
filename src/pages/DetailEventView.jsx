@@ -67,23 +67,24 @@ const DetailEventView = ({ description = "" }) => {
                     <p className="flex items-center gap-2"><strong><FaBuilding /></strong> {event.organizer}</p>
                     <p className="flex items-center gap-2"><strong><FaCalendarAlt /></strong>{formatDate(event.date)} {event.dateend && ` - ${formatDate(event.dateend)}`}</p>
                     <p className="flex items-center gap-2"><strong><FaClock /></strong> {formatTime(event.start_time)} - {formatTime(event.end_time)}</p>
-                    <p className="flex items-center gap-2"><strong><FaLocationDot /></strong> 
-                            {event.location ? (
-                                ["online", "Online", "ONLINE"].includes(event.location.trim()) ? (
-                                    <span>{event.location}</span>
-                                ) : (
-                                    <a
-                                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.location)}`} 
-                                    target="_blank" 
-                                        rel="noopener noreferrer" 
+                    <p className="flex items-center gap-2"><strong><FaLocationDot /></strong>
+                        {event.location ? (
+                            event.location?.toLowerCase().includes("online") ? (
+                                <span>{event.location}</span>
+                            ) : (
+                                <a
+                                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.location)}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="text-blue-600 hover:underline"
                                 >
                                     {event.location}
                                 </a>
-                                )
-                            ) : (
-                                <span>To Be Announced</span>
-                            )}
+                            )
+                        ) : (
+                            <span>To Be Announced</span>
+                        )}
+
                     </p>
                     {event.description && ( 
                         <p className="flex items-center gap-2"><strong><FaStickyNote /></strong> Notes :</p>
