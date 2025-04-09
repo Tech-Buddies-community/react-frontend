@@ -12,6 +12,7 @@ const DetailEventView = ({ description = "" }) => {
     const [showPopup, setShowPopup] = useState(false);
     const [expanded, setExpanded] = useState(false);
     const maxLength = 100;
+    const nonClickable = ["online", "tbc", "tba", "to be confirmed", "to be announced"];
 
     const Event = async () => {
         const { data } = await customAPI.get(`/event/${id}`);
@@ -69,7 +70,7 @@ const DetailEventView = ({ description = "" }) => {
                     <p className="flex items-center gap-2"><strong><FaClock /></strong> {formatTime(event.start_time)} - {formatTime(event.end_time)}</p>
                     <p className="flex items-center gap-2"><strong><FaLocationDot /></strong>
                         {event.location ? (
-                            event.location?.toLowerCase().includes("online") ? (
+                            nonClickable.some(key => event.location.toLowerCase().includes(key)) ? (
                                 <span>{event.location}</span>
                             ) : (
                                 <a
@@ -86,11 +87,11 @@ const DetailEventView = ({ description = "" }) => {
                         )}
 
                     </p>
-                    {event.description && ( 
+                    {event.description && (
                         <p className="flex items-center gap-2"><strong><FaStickyNote /></strong> Notes :</p>
                     )}
                 </div>
-                
+
                 {event.description && (
                     <div className="border border-neutral pb-1 mt-1">
                         <p className="m-2">
