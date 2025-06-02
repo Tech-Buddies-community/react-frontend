@@ -1,10 +1,10 @@
 import React from "react";
 import { Link, useRevalidator } from "react-router-dom";
-import { FaTrash, FaPencilAlt, FaCalendarAlt, FaBuilding } from "react-icons/fa";
+import { FaTrash, FaPencilAlt, FaCalendarAlt, FaBuilding, FaClock } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import customAPI from "../api";
 import { toast } from "react-toastify";
-import { formatDate } from "../Utils/Index";
+import { formatDate, formatTime } from "../Utils/Index";
 
 const CardEvent = ({ item,user }) => {
     const { revalidate } = useRevalidator();
@@ -49,6 +49,9 @@ const CardEvent = ({ item,user }) => {
                     <h1 className="card-title">{item.name.substring(0,19)}</h1>
                     <h3 className="flex items-center gap-2 text-sm"><FaBuilding />{item.organizer.substring(0,19)}</h3>
                     <p className="flex items-center gap-2 text-xs font-bold"><FaCalendarAlt />{formatDate(item.date)} {item.dateend && ` - ${formatDate(item.dateend)}`}</p>
+                    {item.start_time && (
+                        <p className="flex items-center gap-2 text-xs"><FaClock />{formatTime(item.start_time)} {item.end_time && ` - ${formatTime(item.end_time)}`}</p>
+                    )}
                     <p className="flex items-center gap-2 text-sm"><FaLocationDot />{item.location ? item.location.substring(0,19) : "To Be Announced"}</p>
                     <div className="card-actions justify-end">
                     <Link to={`/event/${item._id}`} className="btn btn-neutral bg-blue-600 text-white mt-2">See more</Link>
